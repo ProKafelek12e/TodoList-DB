@@ -1,0 +1,51 @@
+body{
+    margin: 0px;
+    display: grid;
+    grid-template-columns: 15% 85%;
+    grid-template-rows: 100vh;
+    grid-template-areas: "left main";
+
+}
+#left{
+    grid-area: "left";
+    background-color: #5e548e;
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
+    align-items: center;
+}
+#main{
+    grid-area: main;
+    background-color: #9f86c0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.div{
+    display: grid;
+    grid-template-columns: 80% 10% 10%;
+    grid-template-areas: "tresc termin guzik";
+    width: 80%;
+    border: 1px solid tomato;
+    align-items: center;
+    background-color: #be95c4;
+    padding-left: 40px;
+    
+}
+#adder{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid tomato;
+}
+.termin{
+    padding: 10px;
+    grid-area: termin;
+    border-left: 4px solid #5e548e;
+}
+.guzi button{
+    width: 40px;
+    height: 40px;
+}
