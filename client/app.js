@@ -1,6 +1,6 @@
 var json = []
 async function getData(){
-    const data = await fetch(`http://localhost:3000/gettask`)
+    const data = await fetch(`${baseurl}/gettask`)
     json = await data.json()
     await createTasks()
 }
