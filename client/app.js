@@ -1,9 +1,27 @@
+var char
 var json = []
+var wykonane = 0
+var niewykonane = 0
 async function getData(){
     const data = await fetch(`${baseurl}/gettask`)
     json = await data.json()
-    console.log(json[0])
     await createTasks()
+    
+    wykonane = 0
+    niewykonane = 0
+    for(var i=0;i<=json.length-1;i++){
+        if(json[i].done==0){
+            niewykonane++
+        }
+        else{
+            wykonane++
+        }
+    }
+    if(char !=undefined){
+         dCharte()
+    }
+     Charte()
+     
 }
 getData()
 
@@ -26,7 +44,6 @@ function createTasks(){
         const termin = document.createElement("h1")
         var date = new Date(json[i].termin)
         var fdate = date.toLocaleDateString()
-        console.log(fdate)
         termin.innerHTML = fdate
         
         termin.classList.add("termin")
@@ -60,4 +77,31 @@ async function deltask(id){
 async function done(id,done){
     await fetch(`${baseurl}/done/${id}/${done}`)
     getData()
+}
+function Charte(){
+const ctx = document.getElementById('myChart');
+
+
+char = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['Wykonane', 'Nie wykonane'],
+    datasets: [{
+      label: '# of Votes',
+      data: [wykonane ,niewykonane],
+      borderWidth: 2
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
+char.defaultFontColor = "#43F500";
+}
+function dCharte(){
+    char.destroy()
 }
