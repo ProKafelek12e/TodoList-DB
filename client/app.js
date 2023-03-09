@@ -21,7 +21,7 @@ async function getData(){
          dCharte()
     }
      Charte()
-     
+
 }
 getData()
 
@@ -83,24 +83,41 @@ const ctx = document.getElementById('myChart');
 
 
 char = new Chart(ctx, {
-  type: 'bar',
+  type: 'doughnut',
   data: {
     labels: ['Wykonane', 'Nie wykonane'],
     datasets: [{
-      label: '# of Votes',
+      label: 'Votes',
       data: [wykonane ,niewykonane],
+      backgroundColor: [
+        'green',
+        'red',],
+      borderColor: [
+        'black',
+        'black'],
       borderWidth: 2
     }]
   },
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true
-      }
+    options: {
+        plugins: {
+            legend: {
+                display: false,
+            },
+            title: {
+                display: true,
+                text: 'Done / Undone chart',
+                color:"black"
+            },
+            tooltip:{
+                enabled:false
+            },
+            label:{
+                color:"black"
+            }
+        }
     }
-  }
 });
-char.defaultFontColor = "#43F500";
+
 }
 function dCharte(){
     char.destroy()
