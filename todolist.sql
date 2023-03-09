@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 03 Mar 2023, 16:06
+-- Czas generowania: 09 Mar 2023, 13:01
 -- Wersja serwera: 10.4.27-MariaDB
 -- Wersja PHP: 8.2.0
 
@@ -31,7 +31,7 @@ CREATE TABLE `base` (
   `ID` int(11) NOT NULL,
   `nazwa` text NOT NULL,
   `done` tinyint(1) NOT NULL,
-  `termin` int(11) NOT NULL
+  `termin` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -39,8 +39,9 @@ CREATE TABLE `base` (
 --
 
 INSERT INTO `base` (`ID`, `nazwa`, `done`, `termin`) VALUES
-(14, 'test', 1, 3),
-(15, 'test', 0, 4);
+(1, 'test3', 1, '2023-03-31'),
+(16, 't', 1, '2023-03-03'),
+(17, 'te', 0, '2023-02-09');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -60,7 +61,7 @@ ALTER TABLE `base`
 -- AUTO_INCREMENT dla tabeli `base`
 --
 ALTER TABLE `base`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -26,7 +26,7 @@ body{
 }
 .div{
     display: grid;
-    grid-template-columns: 80% 10% 10%;
+    grid-template-columns: 75% 15% 10%;
     grid-template-areas: "tresc termin guzik";
     width: 80%;
     border: 1px solid tomato;

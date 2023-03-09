@@ -2,6 +2,7 @@ var json = []
 async function getData(){
     const data = await fetch(`http://localhost:3000/gettask`)
     json = await data.json()
+    console.log(json[0])
     await createTasks()
 }
 getData()
@@ -23,7 +24,11 @@ function createTasks(){
 
 
         const termin = document.createElement("h1")
-        termin.innerHTML = json[i].termin
+        var date = new Date(json[i].termin)
+        var fdate = date.toLocaleDateString()
+        console.log(fdate)
+        termin.innerHTML = fdate
+        
         termin.classList.add("termin")
         
         const tresc = document.createElement("h1")
