@@ -17,7 +17,7 @@ con.connect(function(err){
 })
 
 app.get("/gettask",function(req,res){
-    const sql = "Select * from base"
+    const sql = "Select * from base WHERE termin >= CURRENT_DATE"
     con.query(sql,function(err,result,fields){
         if(err) console.log("error: "+err)
         res.send(result)
